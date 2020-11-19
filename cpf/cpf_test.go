@@ -1,6 +1,7 @@
 package cpf
 
 import (
+	"strconv"
 	"testing"
 )
 
@@ -93,4 +94,13 @@ func TestRestoDV11(t *testing.T) {
 			t.Errorf("Esperado 6 para DV. Resultados: %d", r16)
 		}
 	})
+}
+
+func BenchmarkAdiciona(b *testing.B) {
+	var cpfATestar string
+	for i := 0; i < b.N; i++ {
+		c := 123456789 + i
+		cpfATestar = strconv.Itoa(c)
+		CpfComDV(cpfATestar)
+	}
 }
