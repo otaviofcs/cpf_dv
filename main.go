@@ -4,6 +4,7 @@ import (
   "fmt"
   "log"
   "net/http"
+  "os"
   cpf "github.com/otaviofcs/cpf_dv/cpf"
 )
 
@@ -15,5 +16,5 @@ func handler(w http.ResponseWriter, r *http.Request) {
 
 func main() {
     http.HandleFunc("/cpfdv/", handler)
-    log.Fatal(http.ListenAndServe(":8080", nil))
+    log.Fatal(http.ListenAndServe(":"+os.Getenv("PORT"), nil))
 }

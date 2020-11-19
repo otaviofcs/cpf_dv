@@ -6,7 +6,7 @@ Calcula o DV de um CPF dado os 9 numeros iniciais.
 
 ```shell
 sudo docker build . -t cpfdv:1.0
-sudo docker run -p 8080:8080 cpfdv:1.0
+sudo docker run --env PORT=8080 -p 8080:8080 cpfdv:1.0
 ```
 
 No seu browser digite a URL:
