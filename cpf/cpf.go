@@ -5,6 +5,14 @@ import (
 	"strconv"
 )
 
+func CpfComDV(cpf string) (string, error) {
+	dvcpf, err := CalculaDVCPF(cpf)
+	if err != nil {
+		return "", err
+	}
+	return cpf + dvcpf, nil
+}
+
 func CalculaDVCPF(cpf string) (string, error) {
 	if len(cpf) != 9 {
 		return "", errors.New("Tamanho de CPF sem DV deve ser 9")

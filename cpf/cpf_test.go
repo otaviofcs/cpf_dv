@@ -4,6 +4,21 @@ import (
 	"testing"
 )
 
+func TestCpfComDV(t *testing.T) {
+	t.Run("Calcula CPF com DV", func(t *testing.T) {
+		cpfsATestar := map[string]string{"296539278": "29653927850", "069319878": "06931987887", "453178287": "45317828791"}
+		for cpfATestar, resultado := range cpfsATestar {
+			cpffinal, err := CpfComDV(cpfATestar)
+			if cpffinal != resultado {
+				t.Errorf("O CPF %s não bate com o resultado esperado %s", cpffinal, resultado)
+			}
+			if err != nil {
+				t.Errorf("Não deveria ter dado erro '%s' no CPF: %s", err, cpfATestar)
+			}
+		}
+	})
+}
+
 func TestCalculaDVCPF(t *testing.T) {
 	t.Run("Calcula DV para CPF com menos de 9 números deve retornar erro", func(t *testing.T) {
 		for _, cpfATestar := range [3]string{"02110202", "12345678901", "1234567890"} {
