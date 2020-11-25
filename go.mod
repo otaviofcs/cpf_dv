@@ -1,3 +1,3 @@
-module github.com/otaviofcs/cpf_dv
+module imbw.com.br/cpf_dv
 
 go 1.15
